@@ -21,7 +21,7 @@ function App() {
   }
 
   function handleCountMinus() {
-    setCount((c) => c + step);
+    setCount((c) => c - step);
   }
 
   function handleCountPlus() {
@@ -40,7 +40,11 @@ function App() {
       </div>
 
       {count === 0 && <span>Today is</span>}
-      {count > 0 && <span>{count} day from today is</span>}
+      {count > 0 && (
+        <span>
+          {count} day from today is {getDate({ count })}
+        </span>
+      )}
       {count < 0 && <span>{count} day ago is</span>}
     </div>
   );
